@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Animes > 8 dans genres populaires</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container py-5">
+  <h2 class="mb-4">🔥 Animes avec un score > 8 dans les genres les plus populaires</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Titre</th>
+        <th>Score</th>
+        <th>Type</th>
+        <th>Genres</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for a in animes %}
+      <tr>
+        <td>{{ a.title }}</td>
+        <td>{{ a.score }}</td>
+        <td>{{ a.type }}</td>
+        <td>
+          {% for g in a.genres %}
+            <span class="badge bg-primary">{{ g.name }}</span>
+          {% endfor %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="/stats/top" class="btn btn-outline-dark">← Retour</a>
+</div>
+</body>
+</html>

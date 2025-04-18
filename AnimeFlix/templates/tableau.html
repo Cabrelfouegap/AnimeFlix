@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Tableau des animes</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+</head>
+<body>
+<div class="container py-5">
+  <h2 class="mb-4">📋 Tableau interactif des animes</h2>
+
+  <table id="animeTable" class="table table-striped">
+    <thead>
+      <tr>
+        <th>Titre</th>
+        <th>Score</th>
+        <th>Votes</th>
+        <th>Type</th>
+        <th>Année</th>
+        <th>Genres</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for a in animes %}
+      <tr>
+        <td>{{ a.titre }}</td>
+        <td>{{ a.score }}</td>
+        <td>{{ a.scored_by or "N/A" }}</td>
+        <td>{{ a.type }}</td>
+        <td>{{ a.année or "?" }}</td>
+        <td>{{ a.genres or "—" }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <a href="/" class="btn btn-outline-dark mt-4">← Retour</a>
+</div>
+
+<!-- JS Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+    $('#animeTable').DataTable({
+      pageLength: 10,
+      language: {
+        search: "🔍 Rechercher :",
+        lengthMenu: "Afficher _MENU_ lignes",
+        info: "Page _PAGE_ sur _PAGES_",
+        paginate: {
+          previous: "Précédent",
+          next: "Suivant"
+        }
+      }
+    });
+  });
+</script>
+</body>
+</html>

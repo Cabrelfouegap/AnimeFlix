@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Animes par décennie</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container py-5">
+  <h2 class="mb-4">📅 Animes par décennie</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Décennie</th>
+        <th>Nombre d'animes</th>
+        <th>Score moyen</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for d in stats %}
+      <tr>
+        <td>{{ d.décennie }}</td>
+        <td>{{ d.nb_animes }}</td>
+        <td>{{ "%.2f"|format(d.score_moyen) }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="/stats/" class="btn btn-outline-dark mt-3">← Retour </a>
+</div>
+</body>
+</html>

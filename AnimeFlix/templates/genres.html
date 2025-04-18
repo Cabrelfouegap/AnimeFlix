@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Top Genres</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container py-5">
+  <h2 class="mb-4">📚 Top 10 Genres les plus fréquents</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Genre</th>
+        <th>Nombre d'animes</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for genre, count in genres %}
+      <tr>
+        <td>{{ genre }}</td>
+        <td>{{ count }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="/stats/top" class="btn btn-outline-dark mt-3">← Retour au Top</a>
+</div>
+</body>
+</html>

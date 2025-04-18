@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Top animes par genre</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container py-5">
+  <h2 class="mb-4">🔥 Top animes dans les 10 genres les plus populaires</h2>
+
+  {% for genre, animes in genre_top.items() %}
+    <h4 class="mt-4">{{ genre }}</h4>
+    <ul class="list-group mb-3">
+      {% for anime in animes %}
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        {{ anime.title }}
+        <span class="badge bg-primary rounded-pill">{{ anime.score }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+  {% endfor %}
+
+  <a href="/stats/top" class="btn btn-outline-dark mt-4">← Retour</a>
+</div>
+</body>
+</html>

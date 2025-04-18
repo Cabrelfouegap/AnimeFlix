@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>AnimeFlix — Accueil</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container py-5">
+  <h1 class="mb-4">📊 Tableau de bord AnimeFlix</h1>
+  <p>Explore différentes statistiques extraites de <strong>6 000+ animes</strong> depuis l’API Jikan & Redis Cloud.</p>
+
+  <div class="list-group">
+    {% for page in pages %}
+    <a href="{{ page.url }}" class="list-group-item list-group-item-action">
+      {{ page.titre }}
+    </a>
+    {% endfor %}
+  </div>
+
+  <footer class="mt-5 text-center text-muted">
+    <hr>
+    <small>Projet réalisé avec Flask + Redis + Pandas + Bootstrap · Groupe 3</small>
+  </footer>
+</div>
+</body>
+</html>

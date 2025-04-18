@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Animes les plus notés</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container py-5">
+  <h2 class="mb-4">📊 Top 20 des animes les plus notés</h2>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Titre</th>
+        <th>Score</th>
+        <th>Votes</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for a in top %}
+      <tr>
+        <td>{{ a.title }}</td>
+        <td>{{ a.score }}</td>
+        <td>{{ "{:,}".format(a.scored_by).replace(",", " ") }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <hr class="my-5">
+
+  <h3 class="text-danger mb-3">💩 Animes très notés mais très mal notés</h3>
+  <p>Ces animes ont été massivement notés... mais mal aimés 😬</p>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Titre</th>
+        <th>Score</th>
+        <th>Votes</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for a in worst %}
+      <tr>
+        <td>{{ a.title }}</td>
+        <td class="text-danger fw-bold">{{ a.score }}</td>
+        <td>{{ "{:,}".format(a.scored_by).replace(",", " ") }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <a href="/" class="btn btn-outline-dark mt-4">← Retour</a>
+</div>
+</body>
+</html>

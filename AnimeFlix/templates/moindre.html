@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Top 10 des moins appréciés</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container py-5">
+  <h2 class="mb-4 text-danger">👎 Top 10 des animes les moins appréciés</h2>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Titre</th>
+        <th>Score</th>
+        <th>Type</th>
+        <th>Année</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for anime in animes %}
+      <tr>
+        <td>{{ anime.titre }}</td>
+        <td>{{ anime.score }}</td>
+        <td>{{ anime.type }}</td>
+        <td>{{ anime.année }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <a href="/" class="btn btn-outline-dark mt-4">← Retour</a>
+</div>
+</body>
+</html>

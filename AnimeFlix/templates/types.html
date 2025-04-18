@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Top Types d'Anime</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container py-5">
+  <h2 class="mb-4">📺 Top 5 types d’animes les plus courants</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Nombre</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for t in types %}
+      <tr>
+        <td>{{ t.type }}</td>
+        <td>{{ t.count }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="/stats/top" class="btn btn-outline-dark mt-4">← Retour</a>
+</div>
+</body>
+</html>
